@@ -1,0 +1,26 @@
+.venv/
+.uv-cache/
+.uv-python/
+__pycache__/
+.pytest_cache/
+.pytest-run-*/
+.pytest-runs/
+*.py[cod]
+*.sqlite3*
+*.egg-info/
+dist/
+build/
+.coverage
+.test-runs/
+.pytest-windows-tmp/
+.smoke/
+.browser-host/
+
+# Local secrets and account/tool configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+.codex/

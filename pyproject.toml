@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling>=1.26,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tocktail"
+version = "0.1.0"
+description = "Local Windows activity tracker with a compact system tray UI"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.12"
+dependencies = ["PySide6-Essentials>=6.8,<7"]
+
+[project.scripts]
+tocktail = "tocktail.cli:main"
+tocktail-desktop = "tocktail.ui.app:main"
+tocktail-native-host = "tocktail.browser.native_host:main"
+tocktail-browser-host = "tocktail.browser.registration:main"
+tocktail-sites = "tocktail.browser.report:main"
+tocktail-startup = "tocktail.config.startup:main"
+
+[dependency-groups]
+dev = ["pytest>=8.3,<10"]
+build = ["pyinstaller>=6.11,<7"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["desktop/src/tocktail"]
+
+[tool.pytest.ini_options]
+testpaths = ["desktop/tests"]
+pythonpath = ["desktop/src"]
+markers = ["windows: optional real Win32 integration tests (--run-windows)"]
+

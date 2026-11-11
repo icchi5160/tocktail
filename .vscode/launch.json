@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Tocktail: Desktop UI",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "tocktail.ui.app",
+      "args": ["--show"],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Tocktail: Phase 1 CLI",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "tocktail",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

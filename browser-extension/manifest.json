@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Tocktail Browser Companion",
+  "version": "0.3.0",
+  "description": "Record foreground site time locally with the Tocktail desktop app.",
+  "minimum_chrome_version": "120",
+  "incognito": "not_allowed",
+  "permissions": ["tabs", "nativeMessaging", "alarms", "webNavigation"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {"service_worker": "background.js", "type": "module"},
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["content.js"],
+    "run_at": "document_idle",
+    "all_frames": true
+  }],
+  "action": {"default_title": "Tocktail — browser connection"},
+  "options_page": "options.html",
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'none'"}
+}
